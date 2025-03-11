@@ -1,0 +1,56 @@
+/*
+ * Created by SharpDevelop.
+ * User: Dell7240
+ * Date: 11/3/2025
+ * Time: 14:32
+ * 
+ * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ */
+using System;
+
+namespace FactorialRecursivo
+{
+	class Program
+	{
+		
+		static int Factorial(int Numero)
+		{
+			if (Numero == 0 || Numero == 1) {
+				return 1;
+			}
+			else{
+				//n!=numero*(numero-1)!
+				return Numero*Factorial(Numero-1);
+			}
+		}
+		
+		static void Salir()
+		{
+			Environment.Exit(0);
+		}
+		
+		public static void Main(string[] args)
+		{
+			
+			int Numero;
+			int Respuesta;
+			do{
+			Console.Clear();
+			Console.Write("\n\tIngrese número para calcular factorial: ");
+			Numero = int.Parse(Console.ReadLine());
+			if (Numero>=0) {
+				Console.Write("\n\tEl factorial de "+Numero+" es: "+Factorial(Numero));
+			}
+			else{
+				Console.Write("\n\tCantidad no válida...");
+			}
+			Console.Write("\n\tPara continuar presione 1, para finalizar presione 0  ");
+			Respuesta = int.Parse(Console.ReadLine());
+			if (Respuesta==0) {
+				Salir();
+			}
+			}while(Respuesta == 1);
+			Console.Write("\n\t");
+			Console.ReadKey(true);
+		}
+	}
