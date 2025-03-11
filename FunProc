@@ -1,0 +1,90 @@
+/*
+ * Created by SharpDevelop.
+ * User: Dell7240
+ * Date: 11/3/2025
+ * Time: 13:57
+ * 
+ * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ */
+using System;
+
+namespace FuncionesEjemplo01
+{
+	class Program
+	{
+		
+		static double IMC(double Peso,double Altura)
+		{	
+			double MasaCorporal;
+			MasaCorporal = Peso/(Math.Pow(Altura,2));
+			Console.Write("\n\tSu Índice de Masa Corporal es: "+Math.Round(MasaCorporal,2));
+			if (MasaCorporal < 18.5) {
+				Console.Write("\n\tBajo peso...");
+			}
+				else if (MasaCorporal>18.5 && MasaCorporal <24.9) {
+					Console.Write("\n\tPeso normal");
+				}
+				else if (MasaCorporal>24.9 && MasaCorporal <26.9) {
+					Console.Write("\n\tObesidad grado I");
+				}
+			return MasaCorporal; 
+		}
+		
+		static void MostrarMensaje()
+		{
+			Console.Write("\n\tHOLA DESDE UN VOID ");
+		}
+		
+		static void Salir()
+		{
+			Environment.Exit(0);
+		}
+		
+		public static void Main(string[] args)
+		{
+			
+			int Op,Op01;
+			double Peso,Altura;
+			do{
+			Console.Clear();
+			Console.Write("\n\tMENÚ");
+			Console.Write("\n\t1.Calcular IMC");
+			Console.Write("\n\t2.Mostrar mensaje");
+			Console.Write("\n\t3.Salir");
+			Console.Write("\n\t¿Opción?  ");
+			Op = int.Parse(Console.ReadLine());
+			switch (Op) {
+				case 1:
+					Console.Clear();
+					Console.Write("\n\tIngrese peso en kilogramos: ");
+					Peso = double.Parse(Console.ReadLine());
+					Console.Write("\n\tIngrese Altura en metros: ");
+					Altura = double.Parse(Console.ReadLine());
+					IMC(Peso,Altura);
+					break;
+					
+				case 2:
+					Console.Clear();
+					MostrarMensaje();
+					break;
+				
+				case 3:
+					Salir();
+					break;
+					
+				default:
+					Console.Write("\n\tOpción no válida... ");
+					break;
+			}
+			Console.Write("\n\tPara continuar, presione 1, para salir presione 0  ");
+			Op01 = int.Parse(Console.ReadLine());
+			if (Op01 == 0) {
+				Salir();
+			}
+			}while(Op01==1);
+			
+			Console.Write("\n");
+			Console.ReadKey(true);
+		}
+	}
+}
